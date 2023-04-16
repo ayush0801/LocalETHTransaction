@@ -12,7 +12,7 @@ export default function App() {
   const handleSendTransaction = async () => {
     console.log(amount,address)
     try {
-      const receipt = await sendTransaction(address, amount);
+      const receipt = await sendTransaction((address), amount);
       setTransactionHash(receipt.transactionHash);
       setTransactionMessage('Transaction successful!');
     } catch (error) {

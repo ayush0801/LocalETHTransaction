@@ -8,13 +8,12 @@ const API_URL = `https://api.etherscan.io/api?module=proxy&action=eth_sendRawTra
 // const Web3 = require('web3')
 const web3 = new Web3('HTTP://127.0.0.1:7545');
 
-const privateKey = Buffer.from('0x4fd488472150becbfd8fb5d3c093bfa9e26042b45e73d5eecbaa7841c1bd33d1', 'base64');
+const privateKey = Buffer.from('0x477415fc5ca2e8fa266656743e1dafb71b50626b99cb33c4e3422fc2239c25ec', 'base64');
 
-// const privateKey = '0x4fd488472150becbfd8fb5d3c093bfa9e26042b45e73d5eecbaa7841c1bd33d1';
-const fromAddress = '0x6a11218656A434e2649753d4c51771982fD4BB88';
+const fromAddress = '0xF3055E74A02ad699cD0437A79D4126DFefCDBcDD';
 
-const toAddress = '0x65c030671203e6fC7250c3720E071636e9217c38';
-const value = '10';
+// const toAddress = '0x65c030671203e6fC7250c3720E071636e9217c38';
+// const value = '10';
 
 export const getBalance = async () => {
   const wei = await web3.eth.getBalance(fromAddress);
@@ -22,8 +21,8 @@ export const getBalance = async () => {
   return ethBalance;
 }
 
-const sendTransaction = async (toAddress, value) => {
-  // console.log(`Sending ETH from ${fromAddress} to ${toAddress}`)
+export const sendTransaction = async (toAddress, value) => {
+  console.log(`Sending ETH from ${fromAddress} to ${toAddress}`)
 
   const txCount = await web3.eth.getTransactionCount(fromAddress);
   const txObject = {
@@ -46,4 +45,4 @@ const sendTransaction = async (toAddress, value) => {
   return txHash;
 }
 
-sendTransaction()
+// sendTransaction()
